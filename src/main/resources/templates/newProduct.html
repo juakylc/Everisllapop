@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Everisllapop</title>
+  <style>
+    .material-icons {
+      font-size: 45px;
+      text-align: center;
+      color: #4d0939;
+    }
+
+    body {
+      height: 100vh;
+
+    }
+
+    .categorias {
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+      min-width: 100%;
+      color: #2b1999;
+    }
+
+    .categorias a:hover {
+      color: #B05574
+    }
+
+    .material-icons:hover {
+      color: #B05574
+    }
+
+    .categorias a {
+      color: #2b1999;
+      text-decoration: none;
+    }
+
+    /* MODAL */
+    .login-trigger {
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(to bottom right, #f9f9f9,#4D0939);
+      padding: 15px 30px;
+      border-radius: 30px;
+      position: relative;
+      top: 50%;
+    }
+
+    /*Modal*/
+    h4 {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .close {
+      color: #fff;
+      transform: scale(1.2)
+    }
+
+    .modal-content {
+      font-weight: bold;
+      background: linear-gradient(to bottom right, #f9f9f9,#4D0939);
+    }
+
+    /* .form-control {
+  margin: 1em 0;
+}*/
+    .form-control:hover,
+    .form-control:focus {
+      box-shadow: none;
+      border-color: #fff;
+    }
+
+    .username,
+    .password {
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      border-bottom: 2px solid #eee;
+      padding-left: 0;
+      font-weight: normal;
+      background: transparent;
+    }
+
+    .form-control::-webkit-input-placeholder {
+      color: #eee;
+    }
+
+    .form-control:focus::-webkit-input-placeholder {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .login {
+      padding: 6px 20px;
+      border-radius: 20px;
+      background: none;
+      border: 2px solid #2b1999;;
+      color: #2b1999;
+      font-weight: bold;
+      transition: all .5s;
+      margin-top: 1em;
+    }
+
+    .mgglobal{
+      margin: 2%
+    }
+
+    .login:hover {
+      background: #FAB87F;
+      color: #fff;
+    }
+
+    .navbar-nav {
+      flex-direction: row;
+    }
+
+    .btnMenu {
+      background-color: #f9f9f9f9;
+      margin-left: 5px;
+    }
+  </style>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+
+ 
+
+<script type="text/javascript">
+    function valid(f) {
+        var ok = true;
+        var msg = "Error: campos vacíos:\n";
+        if (f.elements[0].value == "" || f.elements[1].value == ""
+                || f.elements[2].value == "" || f.elements[3].value == "") {
+            msg += "Tienes que rellenar todos los campos. OBLIGATORIO";
+            ok = false;
+        }
+        
+
+ 
+
+        if (ok == false)
+            alert(msg);
+        return ok;
+    }
+</script>
+
+ 
+
+</head>
+
+ 
+
+<body class="card-body back">
+
+  
+    <nav class="navbar navbar-light "
+    style="padding-top:16px;padding-top:16px;background: linear-gradient(to bottom right,#1025E5,#4D0939)">
+    <div class="container-fluid">
+      <a style="color:white;" class="navbar-brand">Everisllapop</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li class="nav-item justify-content-end">
+          <button class="btn btnMenu justify-content-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Login
+        </li>
+        <!-- MODAL -->
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h4>Login</h4>
+
+                <form>
+                  <input type="text" name="username" class="username form-control" placeholder="Username"/>
+                  <input type="password" name="password" class="password form-control" placeholder="password"/>
+                  <input class="btn login" name="login" type="submit" value="Login" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- FIN MODAL -->
+      <li class="nav-item justify-content-end">
+        <a class="btn btnMenu justify-content-end" th:href="@{/myProductsAdmin}">Area de clientes</a>
+          <!-- <i class="material-icons">person</i>Area de clientes</button> -->
+      </li>
+      </ul>
+      <form th:action="@{/actSearchProduct}" th:object="${searchedProduct}" method="POST" class="d-flex">
+        <input class="form-control me-2" name="productName" type="search" placeholder="Search" aria-label="Search">
+        <button name="btnSearchProductBy" class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+    <h2 class="text-center" th:text="${msg}"></h2>
+    <div class="card text-white bg-dark mb-3">
+        <div class="card-header text-center">Agrega tu Producto</div>
+        <div class="card-body">
+
+ 
+
+            <form id="form" th:action="@{/actAddProduct}" th:object="${newProduct}"
+                method="POST" >
+                <div class="form-group">
+                    <label for="inpProdCategory">Categoria</label> <input type="text"
+                        class="form-control" id="inpProdCategory" name="category" placeholder="Categoria...">
+                </div>
+                <div class="form-group">
+                    <label for="inpProdName">Nombre del Producto</label> <input type="text"
+                        class="form-control" id="inpProdName" name="productName" placeholder="Nombre del Producto..."
+                        maxlength="9">
+                </div>
+                <div class="form-group">
+                    <label for="inpProdPrice">Precio</label> <input type="text"
+                        class="form-control" id="inpProdPrice" name="price" placeholder="Precio...">
+                </div>
+                <div class="form-group">
+                    <label for="inpProdDescription">Descripción</label> <input type="text"
+                        class="form-control" id="inpProdDescription" name="description" placeholder="Descripción...">
+                </div>
+                <div class="form-group">
+                    <label for="inpProdPlace">Localidad</label> <input
+                        type="text" class="form-control" id="inpProdPlace"
+                        name="place" placeholder="Localidad...">
+                </div>
+                <div class="form-group">
+                    <label for="inpProdSellerName">Nombre del Vendedor</label> <input
+                        type="text" class="form-control" id="inpProdSellerName"
+                        name="sellerName" placeholder="Nombre del Vendedor...">
+                </div>
+                <div class="form-group">
+                    <label for="inpProdPhone">Telefono</label> <input type="text"
+                        class="form-control" id="inpProdPhone" name="phone" placeholder="Telefono...">
+                </div>
+                <button type="submit" name="btnAddProduct" class="btn btn-primary"
+                    >Añadir</button>
+                <button type="submit" name="btnAdd" class="btn btn-primary"
+                    onclick="">Agregar Imagen</button>
+                <a class="btn btn-primary" th:href="@{/}" role="button"
+                    id="aBtnReturn">Volver</a>
+            </form>
+        </div>
+    </div>
+
+ 
+
+</body>
+</html>

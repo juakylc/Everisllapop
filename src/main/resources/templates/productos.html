@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Everisllapop</title>
+  <style>
+    .material-icons {
+      font-size: 45px;
+      text-align: center;
+      color: #4d0939;
+    }
+
+    body {
+      height: 100vh;
+
+    }
+
+    .categorias {
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+      min-width: 100%;
+      color: #2b1999;
+    }
+
+    .categorias a:hover {
+      color: #B05574
+    }
+
+    .material-icons:hover {
+      color: #B05574
+    }
+
+    .categorias a {
+      color: #2b1999;
+      text-decoration: none;
+    }
+
+    /* MODAL */
+    .login-trigger {
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(to bottom right, #f9f9f9,#4D0939);
+      padding: 15px 30px;
+      border-radius: 30px;
+      position: relative;
+      top: 50%;
+    }
+
+    /*Modal*/
+    h4 {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .close {
+      color: #fff;
+      transform: scale(1.2)
+    }
+
+    .modal-content {
+      font-weight: bold;
+      background: linear-gradient(to bottom right, #f9f9f9,#4D0939);
+    }
+
+    /* .form-control {
+  margin: 1em 0;
+}*/
+    .form-control:hover,
+    .form-control:focus {
+      box-shadow: none;
+      border-color: #fff;
+    }
+
+    .username,
+    .password {
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      border-bottom: 2px solid #eee;
+      padding-left: 0;
+      font-weight: normal;
+      background: transparent;
+    }
+
+    .form-control::-webkit-input-placeholder {
+      color: #eee;
+    }
+
+    .form-control:focus::-webkit-input-placeholder {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .login {
+      padding: 6px 20px;
+      border-radius: 20px;
+      background: none;
+      border: 2px solid #2b1999;;
+      color: #2b1999;
+      font-weight: bold;
+      transition: all .5s;
+      margin-top: 1em;
+    }
+
+    .mgglobal{
+      margin: 2%
+    }
+
+    .login:hover {
+      background: #FAB87F;
+      color: #fff;
+    }
+
+    .navbar-nav {
+      flex-direction: row;
+    }
+
+    .btnMenu {
+      background-color: #f9f9f9f9;
+      margin-left: 5px;
+    }
+  </style>
+  
+</head>
+
+<body>
+  <nav class="navbar navbar-light "
+    style="padding-top:16px;padding-top:16px;background: linear-gradient(to bottom right,#1025E5,#4D0939)">
+    <div class="container-fluid">
+      <a style="color:white;" class="navbar-brand">Everisllapop</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li class="nav-item justify-content-end">
+          <button class="btn btnMenu justify-content-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Login
+        </li>
+        <!-- MODAL -->
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h4>Login</h4>
+
+                <form>
+                  <input type="text" name="username" class="username form-control" placeholder="Username"/>
+                  <input type="password" name="password" class="password form-control" placeholder="password"/>
+                  <input class="btn login" name="login" type="submit" value="Login" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- FIN MODAL -->
+      <li class="nav-item justify-content-end">
+        <a class="btn btnMenu justify-content-end" th:href="@{/myProductsAdmin}">Area de clientes</a>
+          <!-- <i class="material-icons">person</i>Area de clientes</button> -->
+      </li>
+      </ul>
+      <form th:action="@{/actSearchProduct}" th:object="${searchedProduct}" method="POST" class="d-flex">
+        <input class="form-control me-2" name="productName" type="search" placeholder="Search" aria-label="Search">
+        <button name="btnSearchProductBy" class="btn btn-outline-light" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+
+
+  <!-- CATEGORIAS -->
+  <div class="container flex-row d-flex justify-content-around categorias" style="border-bottom:2px solid #4d0939">
+
+    <a th:href="@{/Vehiculos}"><i class="material-icons">sports_motorsports</i><br>Vehículos</a>
+    <a th:href="@{/Ropa}"><i class="material-icons">checkroom</i><br>Ropa</a>
+    <a th:href="@{/Electronica}"><i class="material-icons">videogame_asset</i><br>Electrónica</a>
+    <a th:href="@{/Juguetes}"><i class="material-icons">toys</i><br>Juguetes</a>
+    <a th:href="@{/Hogar}"><i class="material-icons">house</i><br>Hogar</a>
+    <a th:href="@{/Libros}"><i class="material-icons">library_books</i><br>Libros</a>
+  </div>
+  
+  
+    <div class="container mt-5">
+    <div class= "row">
+      <div class="col-6">
+      <div class="col-6">
+          <label for="state"><h2>Localidad</h2></label>
+          <select class="custom-select d-block w-100" id="state" onchange="javascript:location.href = this.value;">
+            <option >Elige...</option>
+            <option value="/location/sevilla">Sevilla</option>
+            <option value="/location/barcelona">Barcelona</option>
+            <option value="/location/cadiz">Cadiz</option>
+          </select>
+      </div>
+    </div>
+
+      <div class="col-6">
+        <div class="col-6">
+          <label for="state"><h2>Precio</h2></label>
+          <select class="custom-select d-block w-100" id="state" required>
+            <option value="">Elige...</option>
+            <option>Más alto</option>
+            <option>Más Bajo</option>
+          </select>
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  
+<div class=" container text-center px-0 my-5" >
+  <div class="row" >
+    <div  class="col-sm-6 col-md-4 mb-3" th:each="product : ${productsListView}">
+    <div class="card" style="border:4px solid #2b1999;">
+      <img class="card-img-top img-fluid" th:src="@{${product.image}}" th:alt="${product.productName}">
+      <div class="card-block text-center" style="border-top:1px solid #2b1999;border-bottom:1px solid #2b1999;padding-left: 4px;background: #2b1999;padding: 2px;">
+      <h4 class="card-title prue" style="color:#ffffff;font-weight:bold;" th:text="${product.productName}"></h4>
+      </div>
+      <ul class="list-group list-group-flush text-center" style="color:#333333;padding-left: 2px;">
+        <li class="list-group-item p-2" th:text="${product.description}"></li>
+        <li class="list-group-item p-2" th:text="${product.price}">€/n</li>
+      </ul>
+      <a href="./nativo1.html" class="btn btn-outline-light text-center" style="background-color:#2b1999 !important;">Más información</a>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+  
+<!--  
+	<script>
+	function estado() {
+		let ciudad = document.getDocumentById("state").option;
+		switch (ciudad) {
+			case "Sevilla": window.location.href = "http://localhost:8080/location/sevilla"; break;
+			case "Cadiz": window.location.href = "http://localhost:8080/location/cadiz"; break;
+			case "Barcelona": window.location.href = "http://localhost:8080/location/sevilla"; break;
+		}
+	}
+	</script> -->
+  <!-- Optional JavaScript; choose one of the two! -->
+	
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+  </script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
